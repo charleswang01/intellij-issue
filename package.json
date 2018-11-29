@@ -3,15 +3,30 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/core": "7.1.0",
+    "@babel/node": "^7.0.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "23.6.0",
+    "babel-loader": "8.0.4",
+    "babel-plugin-named-asset-import": "^0.2.3",
+    "babel-preset-react-app": "^6.1.0",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "23.6.0",
+    "jest-pnp-resolver": "1.0.1",
+    "jest-resolve": "23.6.0",
     "react": "^16.6.3",
+    "react-app-polyfill": "^0.1.3",
     "react-dom": "^16.6.3",
-    "react-scripts": "2.1.1"
+    "resolve": "1.8.1",
+    "webpack": "4.19.1",
+    "webpack-dev-server": "3.1.9",
+    "webpack-manifest-plugin": "2.0.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "export NODE_ENV=development; webpack-dev-server --host localhost --port 3000",
+    "test": "jest"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -21,5 +36,23 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js",
+    "automock": true,
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.1.2"
+  }
 }
